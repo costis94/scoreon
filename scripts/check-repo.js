@@ -139,12 +139,30 @@ function validateReadme() {
 }
 
 function validateLintOnlyRules() {
-  const jsFiles = ["src/i18n.js", "src/popup.js", "src/scanner.js", "scripts/check-repo.js"];
+  const jsFiles = [];
+  collectJsFiles(path.join(root, "src"), jsFiles);
+  collectJsFiles(path.join(root, "scripts"), jsFiles);
   for (const relPath of jsFiles) validateJavaScriptSyntax(relPath);
 
   const scannerCss = readFile("src/scanner.css");
   if (!scannerCss.includes(":root")) {
     fail("src/scanner.css: expected CSS variable definitions in :root");
+  }
+}
+
+function collectJsFiles(dirPath, output) {
+  if (!fs.existsSync(dirPath)) return;
+
+  for (const entry of fs.readdirSync(dirPath, { withFileTypes: true })) {
+    const fullPath = path.join(dirPath, entry.name);
+    if (entry.isDirectory()) {
+      collectJsFiles(fullPath, output);
+      continue;
+    }
+
+    if (entry.isFile() && entry.name.endsWith(".js")) {
+      output.push(path.relative(root, fullPath).replace(/\\/g, "/"));
+    }
   }
 }
 
