@@ -1,7 +1,7 @@
 <p align="center">
   <img src="assets/logo.png" alt="Scoreon logo" width="180" />
 </p>
-Clarify in README that Scoreon is a Chrome extension
+
 # Scoreon
 
 Scoreon is a Chrome extension that helps you capture visible sheet-music or tablature frames from educational videos and export them into clean PDF or OMR-ready image packages for personal study.
@@ -72,21 +72,21 @@ Exports a ZIP like this:
 
 ```text
 Song Title/
-├── original/
-│   ├── 001-original.png
-│   └── 002-verse-original.png
-├── omr/
-│   ├── 001-omr.png
-│   └── 002-verse-omr.png
-├── preview.pdf
-├── project.json
-└── README.txt
+|-- original/
+|   |-- 001-original.png
+|   `-- 002-verse-original.png
+|-- omr/
+|   |-- 001-omr.png
+|   `-- 002-verse-omr.png
+|-- preview.pdf
+|-- project.json
+`-- README.txt
 ```
 
 The `omr/` folder is meant for tools like Audiveris or homr. The usual workflow is:
 
 ```text
-Scoreon → OMR Package → Audiveris/homr → MusicXML/MXL → MuseScore Studio
+Scoreon -> OMR Package -> Audiveris/homr -> MusicXML/MXL -> MuseScore Studio
 ```
 
 The OMR result will still need checking. Screenshots from videos are not the same thing as a clean scan.

@@ -1,0 +1,13 @@
+{
+  "name": "scoreon",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Scoreon Chrome extension repository checks",
+  "scripts": {
+    "check": "node scripts/check-repo.js",
+    "lint": "node scripts/check-repo.js --lint"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
