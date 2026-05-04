@@ -1,0 +1,155 @@
+{
+  "appName": { "message": "Scoreon" },
+  "appDescription": { "message": "Scoreon helps you capture visible sheet-music or tablature frames from educational videos and export them into clean PDF or OMR-ready image packages for personal study." },
+  "actionDefaultTitle": { "message": "Scoreon" },
+  "popupTitle": { "message": "Scoreon" },
+  "popupDescription": { "message": "Capture visible sheet-music or tablature frames from a video, clean them up, and export a study PDF or OMR-ready package." },
+  "popupOpenScanner": { "message": "Open scanner" },
+  "scannerPageTitle": { "message": "Scoreon - Scanner" },
+  "scannerTagline": { "message": "Capture -> crop -> filter -> PDF / PNG ZIP / OMR Package" },
+  "statusReady": { "message": "Ready" },
+  "previewCropTitle": { "message": "1. Preview & crop area" },
+  "startCapture": { "message": "Start capture" },
+  "emptyHintHtml": { "message": "Click <b>Start capture</b> and choose the tab or window that contains the video." },
+  "clearCrop": { "message": "Clear crop" },
+  "cropNone": { "message": "No crop area selected." },
+  "scanSettingsTitle": { "message": "2. Title & scan settings" },
+  "scoreTitleSection": { "message": "Score title" },
+  "pdfTitleLabel": { "message": "PDF title" },
+  "scoreTitlePlaceholder": { "message": "e.g. Minor Blues Study - Guitar" },
+  "useCapturedTitle": { "message": "Use captured tab title" },
+  "sourceTitleHintNone": { "message": "No tab title has been read yet." },
+  "frameInterval": { "message": "Frame interval (ms)" },
+  "changeThreshold": { "message": "Change threshold" },
+  "duplicateThreshold": { "message": "Duplicate threshold" },
+  "minGap": { "message": "Minimum time between saves (ms)" },
+  "maxImageWidth": { "message": "Maximum image width in PDF (px)" },
+  "scoreDetectorSection": { "message": "Score detector" },
+  "scoreDetectorOnly": { "message": "Keep only frames that look like sheet music or tablature" },
+  "minScoreConfidence": { "message": "Minimum score-like confidence" },
+  "enhanceImage": { "message": "Image cleanup: grayscale + contrast" },
+  "exportCleanupSection": { "message": "Export cleanup" },
+  "autoTrim": { "message": "Auto-trim white space and black bars" },
+  "trimPadding": { "message": "Padding around the score (px)" },
+  "pdfOrientation": { "message": "PDF orientation" },
+  "pdfPortrait": { "message": "A4 portrait" },
+  "pdfLandscape": { "message": "A4 landscape" },
+  "pdfMode": { "message": "PDF mode" },
+  "pdfModeCompact": { "message": "Compact - multiple snippets per page" },
+  "pdfModeSingle": { "message": "One frame per page" },
+  "startScan": { "message": "Start scan" },
+  "stopScan": { "message": "Stop" },
+  "exportPdf": { "message": "Export PDF" },
+  "exportPngZip": { "message": "Export PNG ZIP" },
+  "exportOmrPackage": { "message": "Export OMR Package" },
+  "clearFrames": { "message": "Clear frames" },
+  "savedFrames": { "message": "saved frames" },
+  "lastDiff": { "message": "last diff" },
+  "scoreDetectorMetric": { "message": "score detector" },
+  "rejectedFrames": { "message": "rejected frames" },
+  "savedSnippetsTitle": { "message": "3. Saved snippets" },
+  "savedSnippetsHint": { "message": "Delete anything you do not want before exporting." },
+  "defaultScoreTitle": { "message": "Untitled score" },
+  "sourceTitleCaptured": {
+    "message": "Captured tab title: $TITLE$",
+    "placeholders": { "title": { "content": "$1" } }
+  },
+  "sourceTitleMissing": { "message": "No tab title was read. Type a title manually." },
+  "sourceTitleUnavailable": { "message": "No captured tab title is available. Type a title manually." },
+  "sourceTitleApplied": { "message": "Using the captured tab title for the PDF." },
+  "cropInfo": {
+    "message": "Crop: x=$X$, y=$Y$, $WIDTH$x$HEIGHT$px",
+    "placeholders": {
+      "x": { "content": "$1" },
+      "y": { "content": "$2" },
+      "width": { "content": "$3" },
+      "height": { "content": "$4" }
+    }
+  },
+  "statusRequestingCapture": { "message": "Requesting capture..." },
+  "statusCaptureStopped": { "message": "Capture stopped." },
+  "statusCaptureActive": {
+    "message": "Capture active: $WIDTH$x$HEIGHT$",
+    "placeholders": {
+      "width": { "content": "$1" },
+      "height": { "content": "$2" }
+    }
+  },
+  "statusCaptureFailed": { "message": "Capture was cancelled or failed." },
+  "scoreDetailsTitle": {
+    "message": "lines=$LINES$, density=$DENSITY$%, contrast=$CONTRAST$",
+    "placeholders": {
+      "lines": { "content": "$1" },
+      "density": { "content": "$2" },
+      "contrast": { "content": "$3" }
+    }
+  },
+  "errorCreateImageBlob": { "message": "Could not create image blob." },
+  "errorLoadImage": { "message": "Could not load image." },
+  "statusRejectedFrame": {
+    "message": "Rejected frame: not score-like enough ($SCORE$/100).",
+    "placeholders": { "score": { "content": "$1" } }
+  },
+  "metricNew": { "message": "new" },
+  "statusSavedFrame": {
+    "message": "Saved frame #$COUNT$ | score $SCORE$/100",
+    "placeholders": {
+      "count": { "content": "$1" },
+      "score": { "content": "$2" }
+    }
+  },
+  "statusSkippedDuplicate": {
+    "message": "Skipped duplicate frame | min diff $DIFF$",
+    "placeholders": { "diff": { "content": "$1" } }
+  },
+  "statusStartCaptureFirst": { "message": "Start capture first." },
+  "statusSelectScoreArea": { "message": "Select the score area on the preview first." },
+  "statusScanRunning": { "message": "Scan running..." },
+  "statusScanStopped": { "message": "Scan stopped." },
+  "frameAlt": {
+    "message": "Snippet $NUMBER$",
+    "placeholders": { "number": { "content": "$1" } }
+  },
+  "frameLabelInput": { "message": "Snippet label in the PDF, optional" },
+  "frameLabelPlaceholder": { "message": "e.g. Intro, Verse, Chorus, Bridge" },
+  "frameScoreEmpty": { "message": "score -" },
+  "frameScoreValue": {
+    "message": "score $SCORE$",
+    "placeholders": { "score": { "content": "$1" } }
+  },
+  "frameInfo": {
+    "message": "#$NUMBER$ | $TIME$ | diff $DIFF$ | $SCORE$",
+    "placeholders": {
+      "number": { "content": "$1" },
+      "time": { "content": "$2" },
+      "diff": { "content": "$3" },
+      "score": { "content": "$4" }
+    }
+  },
+  "delete": { "message": "Delete" },
+  "statusFramesCleared": { "message": "Frames cleared." },
+  "omrReadmeTitle": { "message": "Scoreon - OMR Package" },
+  "omrReadmeLabelTitle": { "message": "Title" },
+  "omrReadmeContents": { "message": "Contents" },
+  "omrReadmeOriginal": { "message": "- original/: clean PNG exports for visual checking" },
+  "omrReadmeOmr": { "message": "- omr/: black/white OMR-ready PNG files" },
+  "omrReadmePreview": { "message": "- preview.pdf: human-readable preview" },
+  "omrReadmeProject": { "message": "- project.json: metadata, labels and recommended workflow" },
+  "omrReadmeWorkflow": { "message": "Recommended workflow" },
+  "omrReadmeStep1": { "message": "1. Open the images from the omr/ folder in Audiveris." },
+  "omrReadmeStep2": { "message": "2. Export MusicXML or MXL." },
+  "omrReadmeStep3": { "message": "3. Open the MusicXML/MXL file in MuseScore Studio." },
+  "omrReadmeStep4": { "message": "4. Correct OMR mistakes manually." },
+  "omrReadmeStep5": { "message": "5. Save the final editable score as MSCZ." },
+  "omrReadmeImportant": { "message": "Important" },
+  "omrReadmeWarning": { "message": "OMR is not guaranteed to be perfect, especially with screenshots, tablature, low-resolution video, shadows, overlays or custom notation." },
+  "statusCreatingPngZip": { "message": "Creating PNG ZIP..." },
+  "statusPngZipCreated": { "message": "PNG ZIP created." },
+  "statusPngZipFailed": { "message": "PNG ZIP export failed. Check the console." },
+  "statusCreatingOmrPackage": { "message": "Creating OMR Package..." },
+  "statusOmrPackageCreated": { "message": "OMR Package created." },
+  "statusOmrPackageFailed": { "message": "OMR Package export failed. Check the console." },
+  "statusCreatingPdf": { "message": "Creating PDF..." },
+  "statusPdfCreated": { "message": "PDF created." },
+  "statusPdfFailed": { "message": "PDF export failed. Check the console." }
+}

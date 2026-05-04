@@ -1,0 +1,14 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local exports / test outputs
+*.pdf
+*.zip
+*.musicxml
+*.mxl
+*.mscz
+exports/
+test-output/

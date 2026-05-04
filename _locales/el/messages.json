@@ -1,0 +1,155 @@
+{
+  "appName": { "message": "Scoreon" },
+  "appDescription": { "message": "Το Scoreon σε βοηθά να καταγράφεις μέρος video με παρτιτούρα ή ταμπλατούρα από εκπαιδευτικά βίντεο και να τα εξάγεις σε καθαρό PDF ή σε OMR-ready image packages για προσωπική μελέτη." },
+  "actionDefaultTitle": { "message": "Scoreon" },
+  "popupTitle": { "message": "Scoreon" },
+  "popupDescription": { "message": "Κατάγραψε παρτιτούρα ή ταμπλατούρα από βίντεο, καθάρισέ τα και εξήγαγέ τα σε PDF ή σε OMR-ready package." },
+  "popupOpenScanner": { "message": "Άνοιγμα scanner" },
+  "scannerPageTitle": { "message": "Scoreon - Scanner" },
+  "scannerTagline": { "message": "Capture -> crop -> filter -> PDF / PNG ZIP / OMR Package" },
+  "statusReady": { "message": "Έτοιμο" },
+  "previewCropTitle": { "message": "1. Προεπισκόπηση και περιοχή αποκοπής" },
+  "startCapture": { "message": "Έναρξη καταγραφής" },
+  "emptyHintHtml": { "message": "Πάτησε <b>Έναρξη καταγραφής</b> και διάλεξε την καρτέλα ή το παράθυρο που περιέχει το βίντεο." },
+  "clearCrop": { "message": "Καθαρισμός αποκοπής" },
+  "cropNone": { "message": "Δεν έχει επιλεγεί περιοχή αποκοπής." },
+  "scanSettingsTitle": { "message": "2. Τίτλος και ρυθμίσεις σάρωσης" },
+  "scoreTitleSection": { "message": "Τίτλος παρτιτούρας" },
+  "pdfTitleLabel": { "message": "Τίτλος PDF" },
+  "scoreTitlePlaceholder": { "message": "π.χ. Minor Blues Study - Guitar" },
+  "useCapturedTitle": { "message": "Χρήση τίτλου από την καρτέλα" },
+  "sourceTitleHintNone": { "message": "Δεν έχει διαβαστεί ακόμη ο τίτλος της καρτέλας." },
+  "frameInterval": { "message": "Διάστημα καρέ (ms)" },
+  "changeThreshold": { "message": "Όριο αλλαγής" },
+  "duplicateThreshold": { "message": "Όριο διπλότυπων" },
+  "minGap": { "message": "Ελάχιστος χρόνος μεταξύ αποθηκεύσεων (ms)" },
+  "maxImageWidth": { "message": "Μέγιστο πλάτος εικόνας στο PDF (px)" },
+  "scoreDetectorSection": { "message": "Ανίχνευση παρτιτούρας" },
+  "scoreDetectorOnly": { "message": "Κράτα μόνο καρέ που μοιάζουν με παρτιτούρα ή ταμπλατούρα" },
+  "minScoreConfidence": { "message": "Min Score Confidence" },
+  "enhanceImage": { "message": "Καθαρισμός εικόνας: grayscale + contrast" },
+  "exportCleanupSection": { "message": "Καθαρισμός εξαγωγής" },
+  "autoTrim": { "message": "Αυτόματο κόψιμο λευκού χώρου" },
+  "trimPadding": { "message": "Περιθώριο γύρω από την παρτιτούρα (px)" },
+  "pdfOrientation": { "message": "Προσανατολισμός PDF" },
+  "pdfPortrait": { "message": "A4 πορτρέτο" },
+  "pdfLandscape": { "message": "A4 οριζόντιο" },
+  "pdfMode": { "message": "Λειτουργία PDF" },
+  "pdfModeCompact": { "message": "Compact - πολλά αποσπάσματα ανά σελίδα" },
+  "pdfModeSingle": { "message": "Ένα καρέ ανά σελίδα" },
+  "startScan": { "message": "Έναρξη σάρωσης" },
+  "stopScan": { "message": "Διακοπή" },
+  "exportPdf": { "message": "Εξαγωγή PDF" },
+  "exportPngZip": { "message": "Εξαγωγή PNG ZIP" },
+  "exportOmrPackage": { "message": "Εξαγωγή OMR Package" },
+  "clearFrames": { "message": "Καθαρισμός καρέ" },
+  "savedFrames": { "message": "αποθηκευμένα καρέ" },
+  "lastDiff": { "message": "τελευταίο diff" },
+  "scoreDetectorMetric": { "message": "ανίχνευση score" },
+  "rejectedFrames": { "message": "απορριφθέντα καρέ" },
+  "savedSnippetsTitle": { "message": "3. Αποθηκευμένα αποσπάσματα" },
+  "savedSnippetsHint": { "message": "Διέγραψε ό,τι δεν θέλεις πριν την εξαγωγή." },
+  "defaultScoreTitle": { "message": "Άτιτλη παρτιτούρα" },
+  "sourceTitleCaptured": {
+    "message": "Τίτλος καρτέλας που καταγράφηκε: $TITLE$",
+    "placeholders": { "title": { "content": "$1" } }
+  },
+  "sourceTitleMissing": { "message": "Δεν διαβάστηκε τίτλος καρτέλας. Πληκτρολόγησε τίτλο χειροκίνητα." },
+  "sourceTitleUnavailable": { "message": "Δεν υπάρχει διαθέσιμος καταγεγραμμένος τίτλος καρτέλας. Πληκτρολόγησε τίτλο χειροκίνητα." },
+  "sourceTitleApplied": { "message": "Χρησιμοποιείται ο τίτλος της καρτέλας για το PDF." },
+  "cropInfo": {
+    "message": "Αποκοπή: x=$X$, y=$Y$, $WIDTH$x$HEIGHT$px",
+    "placeholders": {
+      "x": { "content": "$1" },
+      "y": { "content": "$2" },
+      "width": { "content": "$3" },
+      "height": { "content": "$4" }
+    }
+  },
+  "statusRequestingCapture": { "message": "Ζητείται καταγραφή..." },
+  "statusCaptureStopped": { "message": "Η καταγραφή σταμάτησε." },
+  "statusCaptureActive": {
+    "message": "Ενεργή καταγραφή: $WIDTH$x$HEIGHT$",
+    "placeholders": {
+      "width": { "content": "$1" },
+      "height": { "content": "$2" }
+    }
+  },
+  "statusCaptureFailed": { "message": "Η καταγραφή ακυρώθηκε ή απέτυχε." },
+  "scoreDetailsTitle": {
+    "message": "γραμμές=$LINES$, πυκνότητα=$DENSITY$%, αντίθεση=$CONTRAST$",
+    "placeholders": {
+      "lines": { "content": "$1" },
+      "density": { "content": "$2" },
+      "contrast": { "content": "$3" }
+    }
+  },
+  "errorCreateImageBlob": { "message": "Δεν ήταν δυνατή η δημιουργία εικόνας." },
+  "errorLoadImage": { "message": "Δεν ήταν δυνατή η φόρτωση της εικόνας." },
+  "statusRejectedFrame": {
+    "message": "Το καρέ απορρίφθηκε: δεν μοιάζει αρκετά με score ($SCORE$/100).",
+    "placeholders": { "score": { "content": "$1" } }
+  },
+  "metricNew": { "message": "νέο" },
+  "statusSavedFrame": {
+    "message": "Αποθηκεύτηκε καρέ #$COUNT$ | score $SCORE$/100",
+    "placeholders": {
+      "count": { "content": "$1" },
+      "score": { "content": "$2" }
+    }
+  },
+  "statusSkippedDuplicate": {
+    "message": "Παραλείφθηκε διπλότυπο καρέ | ελάχιστη διαφορά $DIFF$",
+    "placeholders": { "diff": { "content": "$1" } }
+  },
+  "statusStartCaptureFirst": { "message": "Ξεκίνα πρώτα την καταγραφή." },
+  "statusSelectScoreArea": { "message": "Επίλεξε πρώτα την περιοχή της παρτιτούρας στην προεπισκόπηση." },
+  "statusScanRunning": { "message": "Η σάρωση εκτελείται..." },
+  "statusScanStopped": { "message": "Η σάρωση σταμάτησε." },
+  "frameAlt": {
+    "message": "Απόσπασμα $NUMBER$",
+    "placeholders": { "number": { "content": "$1" } }
+  },
+  "frameLabelInput": { "message": "Ετικέτα αποσπάσματος στο PDF, προαιρετικά" },
+  "frameLabelPlaceholder": { "message": "π.χ. Εισαγωγή, Στίχοι, Ρεφραίν κτλ" },
+  "frameScoreEmpty": { "message": "score -" },
+  "frameScoreValue": {
+    "message": "score $SCORE$",
+    "placeholders": { "score": { "content": "$1" } }
+  },
+  "frameInfo": {
+    "message": "#$NUMBER$ | $TIME$ | diff $DIFF$ | $SCORE$",
+    "placeholders": {
+      "number": { "content": "$1" },
+      "time": { "content": "$2" },
+      "diff": { "content": "$3" },
+      "score": { "content": "$4" }
+    }
+  },
+  "delete": { "message": "Διαγραφή" },
+  "statusFramesCleared": { "message": "Τα καρέ καθαρίστηκαν." },
+  "omrReadmeTitle": { "message": "Scoreon - OMR Package" },
+  "omrReadmeLabelTitle": { "message": "Title" },
+  "omrReadmeContents": { "message": "Contents" },
+  "omrReadmeOriginal": { "message": "- original/: clean PNG exports for visual checking" },
+  "omrReadmeOmr": { "message": "- omr/: black/white OMR-ready PNG files" },
+  "omrReadmePreview": { "message": "- preview.pdf: human-readable preview" },
+  "omrReadmeProject": { "message": "- project.json: metadata, labels and recommended workflow" },
+  "omrReadmeWorkflow": { "message": "Recommended workflow" },
+  "omrReadmeStep1": { "message": "1. Άνοιξε τις εικόνες από τον φάκελο omr/ στο Audiveris." },
+  "omrReadmeStep2": { "message": "2. Κάνε export σε MusicXML ή MXL." },
+  "omrReadmeStep3": { "message": "3. Άνοιξε το MusicXML/MXL αρχείο στο MuseScore Studio." },
+  "omrReadmeStep4": { "message": "4. Διόρθωσε χειροκίνητα τα λάθη του OMR." },
+  "omrReadmeStep5": { "message": "5. Αποθήκευσε το τελικό επεξεργάσιμο score ως MSCZ." },
+  "omrReadmeImportant": { "message": "Important" },
+  "omrReadmeWarning": { "message": "Το OMR δεν είναι εγγυημένο ότι θα είναι τέλειο, ειδικά με screenshots, ταμπλατούρα, βίντεο χαμηλής ανάλυσης, σκιές, overlays ή μη τυπική σημειογραφία." },
+  "statusCreatingPngZip": { "message": "Δημιουργία PNG ZIP..." },
+  "statusPngZipCreated": { "message": "Το PNG ZIP δημιουργήθηκε." },
+  "statusPngZipFailed": { "message": "Η εξαγωγή PNG ZIP απέτυχε. Έλεγξε την κονσόλα." },
+  "statusCreatingOmrPackage": { "message": "Δημιουργία OMR Package..." },
+  "statusOmrPackageCreated": { "message": "Το OMR Package δημιουργήθηκε." },
+  "statusOmrPackageFailed": { "message": "Η εξαγωγή OMR Package απέτυχε. Έλεγξε την κονσόλα." },
+  "statusCreatingPdf": { "message": "Δημιουργία PDF..." },
+  "statusPdfCreated": { "message": "Το PDF δημιουργήθηκε." },
+  "statusPdfFailed": { "message": "Η εξαγωγή PDF απέτυχε. Έλεγξε την κονσόλα." }
+}
