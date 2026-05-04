@@ -1,10 +1,10 @@
 <p align="center">
   <img src="assets/logo.png" alt="Scoreon logo" width="180" />
 </p>
-
+Clarify in README that Scoreon is a Chrome extension
 # Scoreon
 
-Scoreon helps you capture visible sheet-music or tablature frames from educational videos and export them into clean PDF or OMR-ready image packages for personal study.
+Scoreon is a Chrome extension that helps you capture visible sheet-music or tablature frames from educational videos and export them into clean PDF or OMR-ready image packages for personal study.
 
 I built this as a practical study tool: select the part of the video where the score appears, let the scanner collect the useful frames, clean up the result, and export it in a format that is easy to read or pass to an OMR workflow later.
 
