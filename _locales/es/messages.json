@@ -1,0 +1,155 @@
+{
+  "appName": { "message": "Scoreon" },
+  "appDescription": { "message": "Scoreon te ayuda a capturar fotogramas visibles de partituras o tablaturas de videos educativos y exportarlos como PDF limpios o paquetes de imágenes preparadas para OMR para estudio personal." },
+  "actionDefaultTitle": { "message": "Scoreon" },
+  "popupTitle": { "message": "Scoreon" },
+  "popupDescription": { "message": "Captura fotogramas visibles de partituras o tablaturas de un video, límpialos y expórtalos como PDF de estudio o paquete preparado para OMR." },
+  "popupOpenScanner": { "message": "Abrir scanner" },
+  "scannerPageTitle": { "message": "Scoreon - Scanner" },
+  "scannerTagline": { "message": "Capture -> crop -> filter -> PDF / PNG ZIP / OMR Package" },
+  "statusReady": { "message": "Listo" },
+  "previewCropTitle": { "message": "1. Vista previa y área de recorte" },
+  "startCapture": { "message": "Iniciar captura" },
+  "emptyHintHtml": { "message": "Haz clic en <b>Iniciar captura</b> y elige la pestaña o ventana que contiene el video." },
+  "clearCrop": { "message": "Borrar recorte" },
+  "cropNone": { "message": "No se ha seleccionado un área de recorte." },
+  "scanSettingsTitle": { "message": "2. Título y ajustes de escaneo" },
+  "scoreTitleSection": { "message": "Título de la partitura" },
+  "pdfTitleLabel": { "message": "Título del PDF" },
+  "scoreTitlePlaceholder": { "message": "p. ej. Minor Blues Study - Guitar" },
+  "useCapturedTitle": { "message": "Usar el título capturado de la pestaña" },
+  "sourceTitleHintNone": { "message": "Aún no se ha leído ningún título de pestaña." },
+  "frameInterval": { "message": "Intervalo de fotogramas (ms)" },
+  "changeThreshold": { "message": "Umbral de cambio" },
+  "duplicateThreshold": { "message": "Umbral de duplicados" },
+  "minGap": { "message": "Tiempo mínimo entre guardados (ms)" },
+  "maxImageWidth": { "message": "Ancho máximo de imagen en el PDF (px)" },
+  "scoreDetectorSection": { "message": "Detector de partitura" },
+  "scoreDetectorOnly": { "message": "Conservar solo fotogramas que parezcan partituras o tablaturas" },
+  "minScoreConfidence": { "message": "Confianza mínima de partitura" },
+  "enhanceImage": { "message": "Limpieza de imagen: escala de grises + contraste" },
+  "exportCleanupSection": { "message": "Limpieza de exportación" },
+  "autoTrim": { "message": "Recortar automáticamente espacios en blanco y barras negras" },
+  "trimPadding": { "message": "Margen alrededor de la partitura (px)" },
+  "pdfOrientation": { "message": "Orientación del PDF" },
+  "pdfPortrait": { "message": "A4 vertical" },
+  "pdfLandscape": { "message": "A4 horizontal" },
+  "pdfMode": { "message": "Modo PDF" },
+  "pdfModeCompact": { "message": "Compacto - varios fragmentos por página" },
+  "pdfModeSingle": { "message": "Un fotograma por página" },
+  "startScan": { "message": "Iniciar escaneo" },
+  "stopScan": { "message": "Detener" },
+  "exportPdf": { "message": "Exportar PDF" },
+  "exportPngZip": { "message": "Exportar PNG ZIP" },
+  "exportOmrPackage": { "message": "Exportar OMR Package" },
+  "clearFrames": { "message": "Borrar fotogramas" },
+  "savedFrames": { "message": "fotogramas guardados" },
+  "lastDiff": { "message": "último diff" },
+  "scoreDetectorMetric": { "message": "detector de partitura" },
+  "rejectedFrames": { "message": "fotogramas rechazados" },
+  "savedSnippetsTitle": { "message": "3. Fragmentos guardados" },
+  "savedSnippetsHint": { "message": "Elimina cualquier elemento que no quieras antes de exportar." },
+  "defaultScoreTitle": { "message": "Partitura sin título" },
+  "sourceTitleCaptured": {
+    "message": "Título capturado de la pestaña: $TITLE$",
+    "placeholders": { "title": { "content": "$1" } }
+  },
+  "sourceTitleMissing": { "message": "No se leyó ningún título de pestaña. Escribe un título manualmente." },
+  "sourceTitleUnavailable": { "message": "No hay ningún título de pestaña capturado disponible. Escribe un título manualmente." },
+  "sourceTitleApplied": { "message": "Se usará el título capturado de la pestaña para el PDF." },
+  "cropInfo": {
+    "message": "Recorte: x=$X$, y=$Y$, $WIDTH$x$HEIGHT$px",
+    "placeholders": {
+      "x": { "content": "$1" },
+      "y": { "content": "$2" },
+      "width": { "content": "$3" },
+      "height": { "content": "$4" }
+    }
+  },
+  "statusRequestingCapture": { "message": "Solicitando captura..." },
+  "statusCaptureStopped": { "message": "Captura detenida." },
+  "statusCaptureActive": {
+    "message": "Captura activa: $WIDTH$x$HEIGHT$",
+    "placeholders": {
+      "width": { "content": "$1" },
+      "height": { "content": "$2" }
+    }
+  },
+  "statusCaptureFailed": { "message": "La captura se canceló o falló." },
+  "scoreDetailsTitle": {
+    "message": "líneas=$LINES$, densidad=$DENSITY$%, contraste=$CONTRAST$",
+    "placeholders": {
+      "lines": { "content": "$1" },
+      "density": { "content": "$2" },
+      "contrast": { "content": "$3" }
+    }
+  },
+  "errorCreateImageBlob": { "message": "No se pudo crear el blob de imagen." },
+  "errorLoadImage": { "message": "No se pudo cargar la imagen." },
+  "statusRejectedFrame": {
+    "message": "Fotograma rechazado: no se parece lo suficiente a una partitura ($SCORE$/100).",
+    "placeholders": { "score": { "content": "$1" } }
+  },
+  "metricNew": { "message": "nuevo" },
+  "statusSavedFrame": {
+    "message": "Fotograma #$COUNT$ guardado | puntuación $SCORE$/100",
+    "placeholders": {
+      "count": { "content": "$1" },
+      "score": { "content": "$2" }
+    }
+  },
+  "statusSkippedDuplicate": {
+    "message": "Fotograma duplicado omitido | diff mín. $DIFF$",
+    "placeholders": { "diff": { "content": "$1" } }
+  },
+  "statusStartCaptureFirst": { "message": "Inicia primero la captura." },
+  "statusSelectScoreArea": { "message": "Selecciona primero el área de la partitura en la vista previa." },
+  "statusScanRunning": { "message": "Escaneo en curso..." },
+  "statusScanStopped": { "message": "Escaneo detenido." },
+  "frameAlt": {
+    "message": "Fragmento $NUMBER$",
+    "placeholders": { "number": { "content": "$1" } }
+  },
+  "frameLabelInput": { "message": "Etiqueta del fragmento en el PDF, opcional" },
+  "frameLabelPlaceholder": { "message": "p. ej. Intro, Verse, Chorus, Bridge" },
+  "frameScoreEmpty": { "message": "puntuación -" },
+  "frameScoreValue": {
+    "message": "puntuación $SCORE$",
+    "placeholders": { "score": { "content": "$1" } }
+  },
+  "frameInfo": {
+    "message": "#$NUMBER$ | $TIME$ | diff $DIFF$ | $SCORE$",
+    "placeholders": {
+      "number": { "content": "$1" },
+      "time": { "content": "$2" },
+      "diff": { "content": "$3" },
+      "score": { "content": "$4" }
+    }
+  },
+  "delete": { "message": "Eliminar" },
+  "statusFramesCleared": { "message": "Fotogramas borrados." },
+  "omrReadmeTitle": { "message": "Scoreon - OMR Package" },
+  "omrReadmeLabelTitle": { "message": "Title" },
+  "omrReadmeContents": { "message": "Contents" },
+  "omrReadmeOriginal": { "message": "- original/: exportaciones PNG limpias para revisión visual" },
+  "omrReadmeOmr": { "message": "- omr/: archivos PNG en blanco y negro preparados para OMR" },
+  "omrReadmePreview": { "message": "- preview.pdf: vista previa legible para personas" },
+  "omrReadmeProject": { "message": "- project.json: metadatos, etiquetas y flujo de trabajo recomendado" },
+  "omrReadmeWorkflow": { "message": "Recommended workflow" },
+  "omrReadmeStep1": { "message": "1. Abre las imágenes de la carpeta omr/ en Audiveris." },
+  "omrReadmeStep2": { "message": "2. Exporta como MusicXML o MXL." },
+  "omrReadmeStep3": { "message": "3. Abre el archivo MusicXML/MXL en MuseScore Studio." },
+  "omrReadmeStep4": { "message": "4. Corrige manualmente los errores del OMR." },
+  "omrReadmeStep5": { "message": "5. Guarda la partitura editable final como MSCZ." },
+  "omrReadmeImportant": { "message": "Important" },
+  "omrReadmeWarning": { "message": "No se garantiza que el OMR sea perfecto, especialmente con capturas de pantalla, tablaturas, videos de baja resolución, sombras, superposiciones o notación personalizada." },
+  "statusCreatingPngZip": { "message": "Creando PNG ZIP..." },
+  "statusPngZipCreated": { "message": "PNG ZIP creado." },
+  "statusPngZipFailed": { "message": "La exportación de PNG ZIP falló. Revisa la consola." },
+  "statusCreatingOmrPackage": { "message": "Creando OMR Package..." },
+  "statusOmrPackageCreated": { "message": "OMR Package creado." },
+  "statusOmrPackageFailed": { "message": "La exportación de OMR Package falló. Revisa la consola." },
+  "statusCreatingPdf": { "message": "Creando PDF..." },
+  "statusPdfCreated": { "message": "PDF creado." },
+  "statusPdfFailed": { "message": "La exportación de PDF falló. Revisa la consola." }
+}

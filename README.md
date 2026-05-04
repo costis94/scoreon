@@ -40,7 +40,9 @@ I built this as a practical study tool: select the part of the video where the s
 
 ## Languages
 
-Scoreon currently supports English and Greek through Chrome's built-in extension localization system (`_locales` + `chrome.i18n`).
+Scoreon currently supports English, Greek, and Spanish through Chrome's built-in extension localization system (`_locales` + `chrome.i18n`).
+
+Spanish support is currently AI-generated.
 
 ## Basic workflow
 
