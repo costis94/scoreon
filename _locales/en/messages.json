@@ -119,7 +119,7 @@
   "tipChangeThreshold": { "message": "How different the current frame must be from the previous one before it counts as a new change. Lower it if small score movements are missed." },
   "tipDuplicateThreshold": { "message": "How strictly frames similar to saved ones are rejected. Higher values remove more duplicates, lower values keep more variations." },
   "tipMinGap": { "message": "Minimum time that must pass before another frame can be saved. Helps avoid clusters of nearly identical captures." },
-  "tipMaxImageWidth": { "message": "Maximum width used when saving the frame for export. Higher values preserve more detail but increase file size and memory use." },
+  "tipMaxImageWidth": { "message": "Maximum width used when saving the frame for export. Higher values preserve more detail and help OMR, but increase file size and memory use." },
   "tipScoreDetectorOnly": { "message": "Keeps only frames that look enough like sheet music or tablature. Disable it if you want to capture everything manually." },
   "tipMinScoreConfidence": { "message": "Minimum detector score a frame needs to pass. Lower it if valid score frames are rejected, raise it if unrelated video content gets through." },
   "tipEnhanceImage": { "message": "Converts the saved frame to grayscale and boosts contrast. Usually helps PDF and OMR readability, but can emphasize noise in some videos." },

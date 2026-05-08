@@ -67,6 +67,36 @@ async function frameToPngBlob(frame) {
   return canvasToBlob(canvas, "image/png");
 }
 
+function clamp(value, min, max) {
+  return Math.max(min, Math.min(max, value));
+}
+
+function resizeForOmr(width, height) {
+  const minTargetWidth = 1400;
+  const maxTargetWidth = 2200;
+  const desiredWidth = width < minTargetWidth ? minTargetWidth : width;
+  const targetWidth = clamp(desiredWidth, width, maxTargetWidth);
+  const scale = Math.min(1.35, targetWidth / width);
+  return {
+    width: Math.max(width, Math.round(width * scale)),
+    height: Math.max(height, Math.round(height * scale))
+  };
+}
+
+function collectGrayscaleData(imageData) {
+  const { data, width, height } = imageData;
+  const grays = new Uint8Array(width * height);
+  const histogram = new Uint32Array(256);
+
+  for (let i = 0, p = 0; i < data.length; i += 4, p++) {
+    const gray = Math.round(0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2]);
+    grays[p] = gray;
+    histogram[gray]++;
+  }
+
+  return { grays, histogram };
+}
+
 function otsuThresholdFromHistogram(histogram, totalPixels) {
   let sum = 0;
   for (let i = 0; i < 256; i++) sum += i * histogram[i];
@@ -97,38 +127,151 @@ function otsuThresholdFromHistogram(histogram, totalPixels) {
   return Math.max(90, Math.min(220, threshold));
 }
 
-async function createOmrReadyPngBlob(frame) {
-  const sourceBlob = await frameToPngBlob(frame);
-  const img = await loadImageFromBlob(sourceBlob);
-  const canvas = document.createElement("canvas");
-  canvas.width = frame.width;
-  canvas.height = frame.height;
-  const ctx = canvas.getContext("2d", { willReadFrequently: true });
-  ctx.fillStyle = "#ffffff";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+function percentileFromHistogram(histogram, totalPixels, percentile) {
+  const target = totalPixels * percentile;
+  let cumulative = 0;
 
-  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  const data = imageData.data;
-  const histogram = new Uint32Array(256);
-  const grays = new Uint8Array(canvas.width * canvas.height);
-
-  for (let i = 0, p = 0; i < data.length; i += 4, p++) {
-    const gray = Math.round(0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2]);
-    grays[p] = gray;
-    histogram[gray]++;
+  for (let i = 0; i < histogram.length; i++) {
+    cumulative += histogram[i];
+    if (cumulative >= target) return i;
   }
 
-  const threshold = otsuThresholdFromHistogram(histogram, grays.length);
+  return histogram.length - 1;
+}
+
+function normalizeGrays(grays, histogram) {
+  const totalPixels = grays.length;
+  const low = percentileFromHistogram(histogram, totalPixels, 0.01);
+  const high = percentileFromHistogram(histogram, totalPixels, 0.995);
+  const normalized = new Uint8Array(totalPixels);
+
+  if (high <= low + 8) {
+    normalized.set(grays);
+    return normalized;
+  }
+
+  const scale = 255 / (high - low);
+  for (let i = 0; i < grays.length; i++) {
+    normalized[i] = clamp(Math.round((grays[i] - low) * scale), 0, 255);
+  }
+
+  return normalized;
+}
+
+function buildIntegralImage(grays, width, height) {
+  const integral = new Uint32Array((width + 1) * (height + 1));
+
+  for (let y = 1; y <= height; y++) {
+    let rowSum = 0;
+    for (let x = 1; x <= width; x++) {
+      rowSum += grays[(y - 1) * width + (x - 1)];
+      integral[y * (width + 1) + x] = integral[(y - 1) * (width + 1) + x] + rowSum;
+    }
+  }
+
+  return integral;
+}
+
+function getIntegralMean(integral, width, x1, y1, x2, y2) {
+  const stride = width + 1;
+  const sum =
+    integral[(y2 + 1) * stride + (x2 + 1)] -
+    integral[y1 * stride + (x2 + 1)] -
+    integral[(y2 + 1) * stride + x1] +
+    integral[y1 * stride + x1];
+  const area = (x2 - x1 + 1) * (y2 - y1 + 1);
+  return sum / area;
+}
+
+function adaptiveBinarize(grays, width, height) {
+  const histogram = new Uint32Array(256);
+  for (let i = 0; i < grays.length; i++) histogram[grays[i]]++;
+
+  const globalThreshold = otsuThresholdFromHistogram(histogram, grays.length);
+  const integral = buildIntegralImage(grays, width, height);
+  const radius = clamp(Math.round(Math.min(width, height) / 28), 12, 32);
+  const out = new Uint8Array(width * height);
+
+  for (let y = 0; y < height; y++) {
+    const y1 = Math.max(0, y - radius);
+    const y2 = Math.min(height - 1, y + radius);
+
+    for (let x = 0; x < width; x++) {
+      const x1 = Math.max(0, x - radius);
+      const x2 = Math.min(width - 1, x + radius);
+      const mean = getIntegralMean(integral, width, x1, y1, x2, y2);
+      const localThreshold = Math.max(32, Math.min(globalThreshold - 12, mean - 16));
+      out[y * width + x] = grays[y * width + x] <= localThreshold ? 1 : 0;
+    }
+  }
+
+  return out;
+}
+
+function countDarkNeighbors(binary, width, x, y) {
+  let count = 0;
+
+  for (let yy = y - 1; yy <= y + 1; yy++) {
+    for (let xx = x - 1; xx <= x + 1; xx++) {
+      if (xx === x && yy === y) continue;
+      if (xx < 0 || yy < 0 || xx >= width) continue;
+      const index = yy * width + xx;
+      if (index < 0 || index >= binary.length) continue;
+      count += binary[index];
+    }
+  }
+
+  return count;
+}
+
+function despeckle(binary, width, height) {
+  const out = binary.slice();
+
+  for (let y = 1; y < height - 1; y++) {
+    for (let x = 1; x < width - 1; x++) {
+      const index = y * width + x;
+      const neighbors = countDarkNeighbors(binary, width, x, y);
+
+      if (binary[index] && neighbors <= 1) {
+        out[index] = 0;
+      }
+    }
+  }
+
+  return out;
+}
+
+function applyBinaryToImageData(binary, imageData) {
+  const { data } = imageData;
 
   for (let i = 0, p = 0; i < data.length; i += 4, p++) {
-    const out = grays[p] < threshold ? 0 : 255;
+    const out = binary[p] ? 0 : 255;
     data[i] = out;
     data[i + 1] = out;
     data[i + 2] = out;
     data[i + 3] = 255;
   }
+}
 
+async function createOmrReadyPngBlob(frame) {
+  const sourceBlob = await frameToPngBlob(frame);
+  const img = await loadImageFromBlob(sourceBlob);
+  const targetSize = resizeForOmr(frame.width, frame.height);
+  const canvas = document.createElement("canvas");
+  canvas.width = targetSize.width;
+  canvas.height = targetSize.height;
+  const ctx = canvas.getContext("2d", { willReadFrequently: true });
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.imageSmoothingEnabled = false;
+  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  const { grays, histogram } = collectGrayscaleData(imageData);
+  const normalized = normalizeGrays(grays, histogram);
+  let binary = adaptiveBinarize(normalized, canvas.width, canvas.height);
+  binary = despeckle(binary, canvas.width, canvas.height);
+  applyBinaryToImageData(binary, imageData);
   ctx.putImageData(imageData, 0, 0);
   return canvasToBlob(canvas, "image/png");
 }

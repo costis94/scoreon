@@ -8,7 +8,7 @@ export function getSettings() {
     intervalMs: Number(els.intervalInput.value) || 500,
     threshold: Number(els.thresholdInput.value) || 12,
     minGapMs: Number(els.minGapInput.value) || 900,
-    maxImageWidth: Number(els.maxImageWidthInput.value) || 1600,
+    maxImageWidth: Number(els.maxImageWidthInput.value) || 2800,
     scoreDetector: els.scoreDetectorInput.checked,
     minScore: Number(els.minScoreInput.value) || 48,
     enhance: els.enhanceInput.checked,

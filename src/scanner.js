@@ -131,8 +131,8 @@ function bindCaptureControls() {
       state.stream = await navigator.mediaDevices.getDisplayMedia({
         video: {
           frameRate: { ideal: 30, max: 30 },
-          width: { ideal: 1920 },
-          height: { ideal: 1080 }
+          width: { ideal: 3840, max: 3840 },
+          height: { ideal: 2160, max: 2160 }
         },
         audio: false
       });
