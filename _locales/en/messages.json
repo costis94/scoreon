@@ -37,8 +37,10 @@
   "pdfMode": { "message": "PDF mode" },
   "pdfModeCompact": { "message": "Compact - multiple snippets per page" },
   "pdfModeSingle": { "message": "One frame per page" },
+  "infoIcon": { "message": "i" },
   "startScan": { "message": "Start scan" },
   "stopScan": { "message": "Stop" },
+  "manualCapture": { "message": "Manual capture" },
   "exportPdf": { "message": "Export PDF" },
   "exportPngZip": { "message": "Export PNG ZIP" },
   "exportOmrPackage": { "message": "Export OMR Package" },
@@ -98,6 +100,13 @@
       "score": { "content": "$2" }
     }
   },
+  "statusManualFrameSaved": {
+    "message": "Saved manual frame #$COUNT$ | score $SCORE$/100",
+    "placeholders": {
+      "count": { "content": "$1" },
+      "score": { "content": "$2" }
+    }
+  },
   "statusSkippedDuplicate": {
     "message": "Skipped duplicate frame | min diff $DIFF$",
     "placeholders": { "diff": { "content": "$1" } }
@@ -106,6 +115,19 @@
   "statusSelectScoreArea": { "message": "Select the score area on the preview first." },
   "statusScanRunning": { "message": "Scan running..." },
   "statusScanStopped": { "message": "Scan stopped." },
+  "tipFrameInterval": { "message": "How often the video is checked for a new frame. Lower values catch more changes but use more CPU." },
+  "tipChangeThreshold": { "message": "How different the current frame must be from the previous one before it counts as a new change. Lower it if small score movements are missed." },
+  "tipDuplicateThreshold": { "message": "How strictly frames similar to saved ones are rejected. Higher values remove more duplicates, lower values keep more variations." },
+  "tipMinGap": { "message": "Minimum time that must pass before another frame can be saved. Helps avoid clusters of nearly identical captures." },
+  "tipMaxImageWidth": { "message": "Maximum width used when saving the frame for export. Higher values preserve more detail but increase file size and memory use." },
+  "tipScoreDetectorOnly": { "message": "Keeps only frames that look enough like sheet music or tablature. Disable it if you want to capture everything manually." },
+  "tipMinScoreConfidence": { "message": "Minimum detector score a frame needs to pass. Lower it if valid score frames are rejected, raise it if unrelated video content gets through." },
+  "tipEnhanceImage": { "message": "Converts the saved frame to grayscale and boosts contrast. Usually helps PDF and OMR readability, but can emphasize noise in some videos." },
+  "tipAutoTrim": { "message": "Removes extra white space and common black bars around the score. Makes exports tighter and easier to read." },
+  "tipTrimPadding": { "message": "Extra space left around the score after trimming. Increase it if the crop feels too tight." },
+  "tipPdfOrientation": { "message": "Choose portrait or landscape A4 output. Landscape usually fits wider scores better." },
+  "tipPdfMode": { "message": "Choose whether the PDF packs multiple snippets per page or puts one frame on each page." },
+  "tipManualCapture": { "message": "Saves the current cropped frame immediately, even if the automatic detector would reject it. Useful for difficult or borderline score frames." },
   "frameAlt": {
     "message": "Snippet $NUMBER$",
     "placeholders": { "number": { "content": "$1" } }

@@ -77,8 +77,8 @@ export function analyzeScoreLikeArea() {
     return { score: 0, lineCount: 0, density: 0, contrast: 0, avgRunRatio: 0 };
   }
 
-  const analysisW = Math.min(360, Math.max(120, crop.w));
-  const analysisH = Math.min(220, Math.max(50, Math.round(analysisW * crop.h / crop.w)));
+  const analysisW = Math.min(520, Math.max(180, crop.w));
+  const analysisH = Math.min(320, Math.max(72, Math.round(analysisW * crop.h / crop.w)));
 
   els.detectorCanvas.width = analysisW;
   els.detectorCanvas.height = analysisH;

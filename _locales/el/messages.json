@@ -37,8 +37,10 @@
   "pdfMode": { "message": "Λειτουργία PDF" },
   "pdfModeCompact": { "message": "Compact - πολλά αποσπάσματα ανά σελίδα" },
   "pdfModeSingle": { "message": "Ένα καρέ ανά σελίδα" },
+  "infoIcon": { "message": "i" },
   "startScan": { "message": "Έναρξη σάρωσης" },
   "stopScan": { "message": "Διακοπή" },
+  "manualCapture": { "message": "Χειροκίνητο capture" },
   "exportPdf": { "message": "Εξαγωγή PDF" },
   "exportPngZip": { "message": "Εξαγωγή PNG ZIP" },
   "exportOmrPackage": { "message": "Εξαγωγή OMR Package" },
@@ -98,6 +100,13 @@
       "score": { "content": "$2" }
     }
   },
+  "statusManualFrameSaved": {
+    "message": "Αποθηκεύτηκε χειροκίνητο καρέ #$COUNT$ | score $SCORE$/100",
+    "placeholders": {
+      "count": { "content": "$1" },
+      "score": { "content": "$2" }
+    }
+  },
   "statusSkippedDuplicate": {
     "message": "Παραλείφθηκε διπλότυπο καρέ | ελάχιστη διαφορά $DIFF$",
     "placeholders": { "diff": { "content": "$1" } }
@@ -106,6 +115,19 @@
   "statusSelectScoreArea": { "message": "Επίλεξε πρώτα την περιοχή της παρτιτούρας στην προεπισκόπηση." },
   "statusScanRunning": { "message": "Η σάρωση εκτελείται..." },
   "statusScanStopped": { "message": "Η σάρωση σταμάτησε." },
+  "tipFrameInterval": { "message": "Κάθε πότε ελέγχεται το βίντεο για νέο καρέ. Μικρότερες τιμές πιάνουν περισσότερες αλλαγές αλλά χρησιμοποιούν περισσότερη CPU." },
+  "tipChangeThreshold": { "message": "Πόσο διαφορετικό πρέπει να είναι το τρέχον καρέ από το προηγούμενο για να θεωρηθεί νέα αλλαγή. Χαμήλωσέ το αν χάνονται μικρές μετακινήσεις της παρτιτούρας." },
+  "tipDuplicateThreshold": { "message": "Πόσο αυστηρά απορρίπτονται καρέ που μοιάζουν με ήδη αποθηκευμένα. Μεγαλύτερες τιμές αφαιρούν περισσότερα διπλότυπα." },
+  "tipMinGap": { "message": "Ο ελάχιστος χρόνος που πρέπει να περάσει πριν αποθηκευτεί άλλο καρέ. Βοηθά να μη γεμίζει η λίστα με σχεδόν ίδιες λήψεις." },
+  "tipMaxImageWidth": { "message": "Το μέγιστο πλάτος όταν αποθηκεύεται η εικόνα για export. Μεγαλύτερες τιμές κρατούν περισσότερη λεπτομέρεια αλλά αυξάνουν το μέγεθος αρχείου." },
+  "tipScoreDetectorOnly": { "message": "Κρατά μόνο καρέ που μοιάζουν αρκετά με παρτιτούρα ή tablature. Απενεργοποίησέ το αν θέλεις να κάνεις τα captures χειροκίνητα." },
+  "tipMinScoreConfidence": { "message": "Το ελάχιστο score που χρειάζεται ένα καρέ για να περάσει τον detector. Χαμήλωσέ το αν κόβονται σωστά καρέ, ανέβασέ το αν περνάνε άσχετα στοιχεία." },
+  "tipEnhanceImage": { "message": "Μετατρέπει το αποθηκευμένο καρέ σε grayscale και ενισχύει το contrast. Συνήθως βοηθά σε PDF και OMR, αλλά σε μερικά βίντεο μπορεί να τονίσει θόρυβο." },
+  "tipAutoTrim": { "message": "Αφαιρεί περιττό λευκό χώρο και συνηθισμένες μαύρες μπάρες γύρω από την παρτιτούρα. Κάνει το export πιο καθαρό και πιο σφιχτό." },
+  "tipTrimPadding": { "message": "Πόσο επιπλέον περιθώριο μένει γύρω από την παρτιτούρα μετά το trim. Αύξησέ το αν το αποτέλεσμα φαίνεται πολύ σφιχτό." },
+  "tipPdfOrientation": { "message": "Επιλέγει A4 portrait ή landscape. Το landscape συνήθως ταιριάζει καλύτερα σε φαρδιές παρτιτούρες." },
+  "tipPdfMode": { "message": "Επιλέγει αν το PDF θα βάζει πολλά αποσπάσματα ανά σελίδα ή ένα καρέ ανά σελίδα." },
+  "tipManualCapture": { "message": "Αποθηκεύει αμέσως το τρέχον cropped καρέ, ακόμη κι αν ο αυτόματος detector θα το απέρριπτε. Χρήσιμο για δύσκολες περιπτώσεις." },
   "frameAlt": {
     "message": "Απόσπασμα $NUMBER$",
     "placeholders": { "number": { "content": "$1" } }

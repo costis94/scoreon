@@ -7,6 +7,7 @@ export const els = {
   startCaptureBtn: $("startCaptureBtn"),
   startScanBtn: $("startScanBtn"),
   stopScanBtn: $("stopScanBtn"),
+  manualCaptureBtn: $("manualCaptureBtn"),
   exportPdfBtn: $("exportPdfBtn"),
   exportPngZipBtn: $("exportPngZipBtn"),
   exportOmrPackageBtn: $("exportOmrPackageBtn"),

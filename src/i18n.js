@@ -16,6 +16,12 @@
       el.setAttribute("title", t(el.dataset.i18nTitle));
     });
 
+    root.querySelectorAll("[data-i18n-tooltip]").forEach((el) => {
+      const text = t(el.dataset.i18nTooltip);
+      el.setAttribute("data-tooltip", text);
+      el.setAttribute("aria-label", text);
+    });
+
     root.querySelectorAll("[data-i18n-value]").forEach((el) => {
       el.value = t(el.dataset.i18nValue);
     });

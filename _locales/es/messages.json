@@ -37,8 +37,10 @@
   "pdfMode": { "message": "Modo PDF" },
   "pdfModeCompact": { "message": "Compacto - varios fragmentos por página" },
   "pdfModeSingle": { "message": "Un fotograma por página" },
+  "infoIcon": { "message": "i" },
   "startScan": { "message": "Iniciar escaneo" },
   "stopScan": { "message": "Detener" },
+  "manualCapture": { "message": "Captura manual" },
   "exportPdf": { "message": "Exportar PDF" },
   "exportPngZip": { "message": "Exportar PNG ZIP" },
   "exportOmrPackage": { "message": "Exportar OMR Package" },
@@ -98,6 +100,13 @@
       "score": { "content": "$2" }
     }
   },
+  "statusManualFrameSaved": {
+    "message": "Fotograma manual #$COUNT$ guardado | puntuación $SCORE$/100",
+    "placeholders": {
+      "count": { "content": "$1" },
+      "score": { "content": "$2" }
+    }
+  },
   "statusSkippedDuplicate": {
     "message": "Fotograma duplicado omitido | diff mín. $DIFF$",
     "placeholders": { "diff": { "content": "$1" } }
@@ -106,6 +115,19 @@
   "statusSelectScoreArea": { "message": "Selecciona primero el área de la partitura en la vista previa." },
   "statusScanRunning": { "message": "Escaneo en curso..." },
   "statusScanStopped": { "message": "Escaneo detenido." },
+  "tipFrameInterval": { "message": "Con qué frecuencia se revisa el video para detectar un nuevo fotograma. Valores más bajos capturan más cambios pero usan más CPU." },
+  "tipChangeThreshold": { "message": "Qué tan distinto debe ser el fotograma actual del anterior para contar como un nuevo cambio. Bájalo si se pierden pequeños movimientos de la partitura." },
+  "tipDuplicateThreshold": { "message": "Qué tan estrictamente se rechazan fotogramas parecidos a otros ya guardados. Valores más altos eliminan más duplicados." },
+  "tipMinGap": { "message": "Tiempo mínimo que debe pasar antes de guardar otro fotograma. Ayuda a evitar grupos de capturas casi idénticas." },
+  "tipMaxImageWidth": { "message": "Ancho máximo usado al guardar la imagen para exportación. Valores más altos conservan más detalle pero aumentan el tamaño del archivo." },
+  "tipScoreDetectorOnly": { "message": "Conserva solo fotogramas que se parezcan lo suficiente a una partitura o tablatura. Desactívalo si quieres capturar todo manualmente." },
+  "tipMinScoreConfidence": { "message": "Puntuación mínima que necesita un fotograma para pasar el detector. Bájala si se rechazan fotogramas válidos; súbela si se cuela contenido ajeno." },
+  "tipEnhanceImage": { "message": "Convierte la imagen guardada a escala de grises y aumenta el contraste. Normalmente mejora la lectura en PDF y OMR, pero a veces también resalta ruido." },
+  "tipAutoTrim": { "message": "Quita espacios en blanco extra y barras negras comunes alrededor de la partitura. Hace la exportación más limpia y compacta." },
+  "tipTrimPadding": { "message": "Espacio extra que se deja alrededor de la partitura después del recorte. Súbelo si el resultado queda demasiado ajustado." },
+  "tipPdfOrientation": { "message": "Elige salida A4 vertical u horizontal. Horizontal suele funcionar mejor con partituras anchas." },
+  "tipPdfMode": { "message": "Elige si el PDF agrupa varios fragmentos por página o coloca un fotograma por página." },
+  "tipManualCapture": { "message": "Guarda de inmediato el fotograma recortado actual, incluso si el detector automático lo rechazaría. Útil para casos difíciles." },
   "frameAlt": {
     "message": "Fragmento $NUMBER$",
     "placeholders": { "number": { "content": "$1" } }

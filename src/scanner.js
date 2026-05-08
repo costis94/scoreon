@@ -56,6 +56,30 @@ async function scanTick() {
   }
 }
 
+async function manualCaptureFrame() {
+  if (!state.stream || !els.video.videoWidth) {
+    setStatus(t("statusStartCaptureFirst"));
+    return;
+  }
+
+  if (!state.cropVideo) {
+    setStatus(t("statusSelectScoreArea"));
+    return;
+  }
+
+  const detectorResult = analyzeScoreLikeArea();
+  updateDetectorMetrics(detectorResult);
+
+  const signature = buildSignature();
+  const diff = signatureDiff(signature, state.lastSignature);
+  els.lastDiff.textContent = Number.isFinite(diff) ? diff.toFixed(1) : t("metricNew");
+
+  state.lastSignature = signature;
+  state.lastSavedAt = Date.now();
+  await saveCurrentFrame(diff, detectorResult, signature);
+  setStatus(t("statusManualFrameSaved", [String(state.frames.length), String(detectorResult.score)]));
+}
+
 function startScan() {
   if (!state.stream || !els.video.videoWidth) {
     setStatus(t("statusStartCaptureFirst"));
@@ -141,6 +165,9 @@ function bindCaptureControls() {
 function bindScanControls() {
   els.startScanBtn.addEventListener("click", startScan);
   els.stopScanBtn.addEventListener("click", stopScan);
+  els.manualCaptureBtn.addEventListener("click", () => {
+    void manualCaptureFrame();
+  });
 }
 
 function bindClearFramesControl() {
